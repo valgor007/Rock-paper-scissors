@@ -17,36 +17,44 @@ computerSelection = getComputerChoice();
 //play round
 function playRound(playerSelection, computerSelection){
     if((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock")  || (playerSelection === "scissors" && computerSelection === "paper")){
-        result = `You win! Player score: ${playerScore++}. Computer score:${computerScore}`
+        result = `You win! Player score: ${++playerScore}. Computer score:${computerScore}`
         console.log(result)
     
         
 
     }else if(playerSelection === computerSelection){
         console.log(`It's a draw! 
-        Draws: ${draw++}`);
+        Draws: ${++draw}`);
         
 
     }else {
-        result = `You lose! Player score: ${playerScore}. Computer score:${computerScore++}.`
+        result = `You lose! Player score: ${playerScore}. Computer score: ${++computerScore}.`
         console.log(result);
     }
 }
 
 function game(){
-    for (let i = 0; i < 10; i++) {
-        let playerSelection = prompt("Choose please");
+    for (let i = 0; i < 20; i++) {
+        let playerSelection = getComputerChoice();
         playerSelection.toLowerCase();
         getComputerChoice();
         
         playRound(playerSelection, computerSelection);  
         
         if((playerScore === 5)||(computerScore===5)){
-            console.log(playerScore, computerScore);
-            break
+            console.log(`Final score: 
+                        Player score: ${playerScore}   
+                        Computer score: ${computerScore}`)
+            break;
+            
             
         }
      }
+     if(playerScore > computerScore){
+        console.log(`You are the winner!`)
+    }else{
+        console.log(`You lose. The computer wins.`);
+    }
     }
 
 

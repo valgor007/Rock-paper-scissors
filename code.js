@@ -31,7 +31,7 @@ function playRound(playerSelection, computerSelection){
         result = `You lose! Player score: ${playerScore}. Computer score: ${++computerScore}.`
         console.log(result);
     }
-}
+} 
 
 function game(){
     for (let i = 0; i < 20; i++) {
